@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+
+
+	<!--
+	 * template for HTTPServer Plugin for Miranda IM by Houdini
+			http://addons.miranda-im.org/details.php?action=viewfile&id=2304
+
+	 * the icons are taken from the 'Crystal Project' by Everaldo Coelho, licenced under LGPL
+			http://www.everaldo.com/
+
+	modded by Wishmaster
+		+ header bar
+		+ tooltips on each field
+		+ moved design to seperate CSS file
+		* proper support for "shortcut icon" aka "favicon" (with link tag)
+		* lots of code changes
+		* converted to XHTML 1.1
+	-->
+
+	<head>
+		
+		<!-- title of the page -->
+		<title>Directroy [DirectoryName]</title>
+		
+		<!-- path to the FavIcon -->
+		<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+		
+		<!-- path to the CSS file -->
+		<link rel="stylesheet" type="text/css" href="/theme/style/simpleTheme.css" />
+	</head>
+	<body>
+		<table id="listing">
+			<caption id="tablecaption" class="tablecaption">Directory [DirectoryName]</caption>
+			<tr id="header">
+				<th class="file">Name</th>
+				<th class="size">Size</th>
+				<th class="modified">Modified</th>
+				<th class="created">Created</th>
+			</tr>
+
+[ForDirectoriesDo]
+			<tr [IsEven]class="even"[End][IsOdd]class="odd"[End]>
+				<td title="Directory: [DirectoryName]" class="folder" colspan="4">
+					<a href="[DirectoryUrl]" title="[DirectoryName] (Directory)" class="folder">
+						<img src="/theme/icons/folder_gray.png" alt="folder" />
+						[DirectoryName]
+					</a>
+				</td>
+			</tr>
+[End]
+
+[ForFilesDo]
+			<tr [IsEven]class="even"[End][IsOdd]class="odd"[End]>
+				<td title="File: [FileName]" class="file">
+					<a href="[FileUrl]" title="[FileName] ([FileSize])">
+[IsFileType=jpg,jpeg,gif,png,bmp]<img src="/theme/icons/image2.png" alt="" />[End]
+[IsFileType=zip,rar,ace,arj,lha,lhz,tar,gz,7z]<img src="/theme/icons/tar.png" alt="" />[End]
+[IsFileType=rtf,doc]<img src="/theme/icons/doc.png" alt="" />[End]
+[IsFileType=txt,diz]<img src="/theme/icons/txt.png" alt="" />[End]
+[IsFileType=pdf]<img src="/theme/icons/pdf.png" alt="" />[End]
+[IsFileType=tex]<img src="/theme/icons/tex.png" alt="" />[End]
+[IsFileType=java,jar]<img src="/theme/icons/source_java.png" alt="" />[End]
+[IsFileType=exe,bat,dll]<img src="/theme/icons/win_apps.png" alt="" />[End]
+[IsFileType=html,htm,xml,php,css]<img src="/theme/icons/www.png" alt="" />[End]
+[IsFileType=avi,mpg,mpeg]<img src="/theme/icons/video.png" alt="" />[End]
+[IsFileType=c,cpp,h]<img src="/theme/icons/source.png" alt="" />[End]
+[IsFileType=mp3,ogg,wav,mid,mod,xm]<img src="/theme/icons/sound.png" alt="" />[End]
+[IsFileType=*]<img src="/theme/icons/empty.png" alt="" />[End]
+						[FileName]
+					</a>
+				</td>
+				<td class="size" title="Size: [FileSize]">[FileSize]</td>
+				<td class="modified" title="Modified: [FileModified]">[FileModified]</td>
+				<td class="created" title="Created: [FileCreated]">[FileCreated]</td>
+			</tr>
+[End]
+
+		</table>
+	</body>
+</html>

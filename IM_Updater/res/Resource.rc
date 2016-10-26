@@ -1,0 +1,225 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "..\src\resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian (Russia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MENU                ICON                    "menu.ico"
+IDI_OK                  ICON                    "btnOk.ico"
+IDI_CANCEL              ICON                    "btnClose.ico"
+IDI_INFO                ICON                    "info.ico"
+IDI_PLGLIST             ICON                    "PlgList.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_UPDATE DIALOGEX 0, 0, 240, 236
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Updates found!"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CTEXT           "PluginUpdater has detected updated versions of some Miranda components. Click on Details button to view more information.",IDC_UPDATETEXT,9,7,223,24
+    DEFPUSHBUTTON   "Update",IDOK,32,36,50,14,WS_DISABLED
+    PUSHBUTTON      "Details >>",IDC_DETAILS,95,36,50,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,157,36,50,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,1,58,236,1
+    CONTROL         "",IDC_LIST_UPDATES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,6,64,229,149
+    PUSHBUTTON      "Select &all",IDC_SELALL,109,218,60,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Select &none",IDC_SELNONE,175,218,60,14,NOT WS_TABSTOP
+END
+
+IDD_OPT_UPDATENOTIFY DIALOGEX 0, 0, 301, 236
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Hotkey",IDC_STATIC,2,0,284,26
+    CONTROL         "Go to Customize -> Hotkeys to change the hotkey",IDC_LINK_HOTKEY,
+                    "Hyperlink",WS_TABSTOP,29,11,249,10
+    GROUPBOX        "Update options",IDC_STATIC,1,29,285,73
+    CONTROL         "On startup",IDC_UPDATEONSTARTUP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,44,73,10
+    CONTROL         "(but only once a day)",IDC_ONLYONCEADAY,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,92,44,186,10
+    CONTROL         "Every",IDC_UPDATEONPERIOD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,58,52,10
+    EDITTEXT        IDC_PERIOD,65,56,28,14,ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    CONTROL         "",IDC_PERIODSPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | WS_DISABLED,92,56,10,15
+    COMBOBOX        IDC_PERIODMEASURE,114,56,58,30,CBS_DROPDOWNLIST | CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Silent mode",IDC_SILENTMODE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,72,267,10
+    CONTROL         "Backup database before update (requires db_autobackups)",IDC_BACKUP,
+                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,11,86,267,10
+    GROUPBOX        "Files source",IDC_STATIC,2,115,285,96
+    CONTROL         "Stable version",IDC_STABLE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,12,128,267,10
+    CONTROL         "Development version (less stable)",IDC_TRUNK,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,12,143,267,10
+    CONTROL         "Development version with debug symbols",IDC_TRUNK_SYMBOLS,
+                    "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,12,158,267,10
+    CONTROL         "Custom version",IDC_CUSTOM,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,12,173,267,10
+    EDITTEXT        IDC_CUSTOMURL,12,187,267,16,ES_AUTOHSCROLL | WS_DISABLED
+    CTEXT           "Some component(s) was updated.\nYou need to restart your Miranda to apply installed updates.",IDC_NEEDRESTARTLABEL,11,213,267,15,NOT WS_VISIBLE
+END
+
+IDD_POPUP DIALOGEX 0, 0, 316, 174
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Notifications",IDC_NOTIFY,1,0,172,63
+    CONTROL         "Restart",IDC_MSG_BOXES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,19,79,10
+    CONTROL         "Errors",IDC_ERRORS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,32,79,10
+    CONTROL         "Info messages",IDC_INFO_MESSAGES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,45,79,10
+    CTEXT           "Back",IDC_STATIC,90,8,24,8
+    CTEXT           "Text",IDC_STATIC,116,8,24,8
+    CONTROL         "",IDC_MSG_BOXES_BG,"ColourPicker",WS_TABSTOP,90,17,24,12
+    CONTROL         "",IDC_MSG_BOXES_TX,"ColourPicker",WS_TABSTOP,116,17,24,12
+    CONTROL         "",IDC_ERR_BG,"ColourPicker",WS_TABSTOP,90,31,24,12
+    CONTROL         "",IDC_ERR_TX,"ColourPicker",WS_TABSTOP,116,31,24,12
+    CONTROL         "",IDC_INFO_MESSAGES_BG,"ColourPicker",WS_TABSTOP,90,44,24,12
+    CONTROL         "",IDC_INFO_MESSAGES_TX,"ColourPicker",WS_TABSTOP,116,44,24,12
+    GROUPBOX        "Colors",IDC_COLORS,178,0,133,63,WS_GROUP
+    CONTROL         "Use cus&tom colors",IDC_USEOWNCOLORS,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE | BS_NOTIFY,186,15,122,13
+    CONTROL         "Use &Windows colors",IDC_USEWINCOLORS,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE | BS_NOTIFY,186,37,121,13
+    CONTROL         "Use defa&ult colors",IDC_USEPOPUPCOLORS,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE | BS_NOTIFY,186,26,102,13
+    PUSHBUTTON      "Preview",IDC_PREVIEW,107,153,102,12
+    GROUPBOX        "Click action",IDC_STATIC,1,110,310,37,WS_GROUP
+    LTEXT           "On left click",IDC_STATIC,8,122,145,8
+    COMBOBOX        IDC_LC,6,130,147,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "On right click",IDC_STATIC,161,120,145,8
+    COMBOBOX        IDC_RC,159,130,147,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Timeout",IDC_STATIC,1,64,310,45
+    EDITTEXT        IDC_TIMEOUT_VALUE,7,76,32,12,ES_RIGHT | ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_TIMEOUT_VALUE_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,28,76,11,12
+    CTEXT           "0 = Default",IDC_STATIC_DEFAULT,74,78,99,8
+    CTEXT           "-1 = Infinite",IDC_STATIC_INFINITE,186,78,117,8
+    LTEXT           "Sec",IDC_STATIC_SEC,43,78,17,8
+    LTEXT           "For ""Restart"" popup setting is always infinity",IDC_STATIC,7,94,297,8
+    CTEXT           "Popups",IDC_STATIC,7,9,79,8
+END
+
+IDD_LIST DIALOGEX 0, 0, 240, 236
+STYLE DS_SETFONT | DS_SETFOREGROUND | DS_3DLOOK | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "Component list"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CTEXT           "Here is the complete list of missing Miranda NG components. Check components that you want to download.\n\nClick on info icon to view component info page.",IDC_UPDATETEXT,9,9,223,44
+    DEFPUSHBUTTON   "Download",IDOK,175,218,60,14,WS_DISABLED
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,1,58,236,1
+    CONTROL         "",IDC_LIST_UPDATES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,6,64,229,149
+    PUSHBUTTON      "Select &none",IDC_SELNONE,109,218,60,14,NOT WS_TABSTOP
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "..\\src\\resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_UPDATE, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_OPT_UPDATENOTIFY, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 294
+        VERTGUIDE, 2
+        VERTGUIDE, 11
+        VERTGUIDE, 278
+        VERTGUIDE, 286
+        BOTTOMMARGIN, 228
+    END
+
+    IDD_POPUP, DIALOG
+    BEGIN
+        VERTGUIDE, 1
+        VERTGUIDE, 7
+        VERTGUIDE, 86
+        VERTGUIDE, 90
+        VERTGUIDE, 114
+        VERTGUIDE, 116
+        VERTGUIDE, 140
+        VERTGUIDE, 153
+        VERTGUIDE, 169
+        VERTGUIDE, 173
+        VERTGUIDE, 178
+        VERTGUIDE, 186
+        VERTGUIDE, 311
+    END
+
+    IDD_LIST, DIALOG
+    BEGIN
+        VERTGUIDE, 6
+        VERTGUIDE, 235
+        BOTTOMMARGIN, 234
+        HORZGUIDE, 232
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Russian (Russia) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
