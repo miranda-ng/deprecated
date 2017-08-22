@@ -1,1 +1,1 @@
-# Deprecated #
+# Deprecated and not adopted stuff#
