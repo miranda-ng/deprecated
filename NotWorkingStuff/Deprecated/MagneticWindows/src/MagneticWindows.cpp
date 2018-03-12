@@ -1,4 +1,4 @@
-#include "MagneticWindowsCore.h"
+#include "stdafx.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -25,7 +25,6 @@ PLUGININFOEX pluginInfo = {
 	__AUTHOR,
 	__AUTHOREMAIL,
 	__COPYRIGHT,
-	__AUTHORWEB,
 	UNICODE_AWARE,
 	// {08C01613-24C8-486F-BDAE-2C3DDCAF9347}
 	{0x8c01613, 0x24c8, 0x486f, { 0xbd, 0xae, 0x2c, 0x3d, 0xdc, 0xaf, 0x93, 0x47 }} 
@@ -33,6 +32,7 @@ PLUGININFOEX pluginInfo = {
 
 HINSTANCE hInst;
 int hLangpack;
+CLIST_INTERFACE *pcli;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Plugin Functions
@@ -90,7 +90,7 @@ int SnapPluginStart(WPARAM, LPARAM)
 
 	HookEvent(ME_MSG_WINDOWEVENT, PluginMessageWindowEvent);
 
-	WindowOpen((HWND)CallService(MS_CLUI_GETHWND,0,0));
+	WindowOpen(pcli->hwndContactList);
 	return 0;
 }
 
@@ -113,6 +113,7 @@ extern "C" __declspec(dllexport) PLUGININFOEX* MirandaPluginInfoEx(DWORD)
 extern "C" int __declspec(dllexport) Load()
 {
 	mir_getLP(&pluginInfo);
+	pcli = Clist_GetInterface();
 	
 	HookEvent(ME_SYSTEM_MODULESLOADED, SnapPluginStart);
 	HookEvent(ME_SYSTEM_PRESHUTDOWN, SnapPluginShutDown);
@@ -136,7 +137,7 @@ extern "C" int __declspec(dllexport) Unload()
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
+BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD, LPVOID)
 {
 	hInst = hinstDLL;
 	return TRUE;

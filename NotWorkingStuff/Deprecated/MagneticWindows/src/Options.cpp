@@ -1,4 +1,4 @@
-#include "MagneticWindowsCore.h"
+#include "stdafx.h"
 
 TOptions Options = {
 	true,
@@ -18,7 +18,7 @@ INT_PTR CALLBACK OptionsDlgProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lP
 		SendDlgItemMessage(hwndDlg, IDC_SLIDER_SNAPWIDTH, TBM_SETRANGE, FALSE, MAKELONG(1,32));
 		SendDlgItemMessage(hwndDlg, IDC_SLIDER_SNAPWIDTH, TBM_SETPOS, TRUE, Options.SnapWidth);
 
-		mir_sntprintf(str, SIZEOF(str),TranslateT("%d pix"), Options.SnapWidth);
+		mir_snwprintf(str, TranslateT("%d pix"), Options.SnapWidth);
 		SetDlgItemText(hwndDlg, IDC_TXT_SNAPWIDTH, str);
 
 		EnableWindow(GetDlgItem(hwndDlg, IDC_SLIDER_SNAPWIDTH), Options.DoSnap);
@@ -28,7 +28,7 @@ INT_PTR CALLBACK OptionsDlgProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lP
 		break;		
 
 	case WM_HSCROLL:
-		mir_sntprintf(str, SIZEOF(str), TranslateT("%d pix"), SendDlgItemMessage(hwndDlg, IDC_SLIDER_SNAPWIDTH, TBM_GETPOS, 0, 0));
+		mir_snwprintf(str, TranslateT("%d pix"), SendDlgItemMessage(hwndDlg, IDC_SLIDER_SNAPWIDTH, TBM_GETPOS, 0, 0));
 		SetDlgItemText(hwndDlg, IDC_TXT_SNAPWIDTH, str);
 		SendMessage(GetParent(hwndDlg), PSM_CHANGED, 0, 0);
 		break;
@@ -81,8 +81,8 @@ int InitOptions(WPARAM wParam, LPARAM)
 	Opt.pfnDlgProc = OptionsDlgProc;
 	Opt.pszTemplate = MAKEINTRESOURCEA(IDD_OPT_MAGNETICWINDOWS);
 	Opt.hInstance = hInst;
-	Opt.pszGroup = LPGEN("Customize");
-	Opt.pszTitle = LPGEN("Magnetic Windows");
+	Opt.szGroup.a = LPGEN("Customize");
+	Opt.szTitle.a = LPGEN("Magnetic Windows");
 	Opt.flags = ODPF_BOLDGROUPS;
 	Options_AddPage(wParam, &Opt);
 	return 0;
