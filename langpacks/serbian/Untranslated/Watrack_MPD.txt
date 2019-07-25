@@ -1,0 +1,7 @@
+[Music Player Daemon support for Watrack.]
+[MPD Host]
+[Port]
+[Password]
+[Watrack MPD connection]
+[Winamp Track]
+[Watrack MPD]
